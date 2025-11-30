@@ -65,7 +65,7 @@
 ```bash
 conda create -n pytorch python=3.11
 conda activate pytorch
-````
+```
 
 ## 2️⃣ 安装 PyTorch（适配 RTX 3050，CUDA 11.8）
 
