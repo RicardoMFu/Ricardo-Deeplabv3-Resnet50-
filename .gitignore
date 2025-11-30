@@ -1,0 +1,25 @@
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+
+# 虚拟环境
+env/
+venv/
+.venv/
+
+# VSCode 设置
+.vscode/
+
+# 数据集（不要上传）
+data/
+
+# 训练/评估中间结果
+logs/
+results/
+Evaluation_plot/
+checkpoints/
+*.pth
+
+# Jupyter 临时
+.ipynb_checkpoints/
