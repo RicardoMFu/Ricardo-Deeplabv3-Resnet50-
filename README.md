@@ -79,22 +79,42 @@ pip install numpy pillow matplotlib scikit-learn opencv-python tqdm seaborn
 ```
 project_deeplab/
 │
-├── train.py                # 训练入口
-├── predict.py              # 推理/预测
-├── evaluate_metrics.py     # 模型评估（混淆矩阵/mIoU/mPA）
+├── checkpoints/                        # 模型权重（自动保存）
+│     └── best_deeplabv3_resnet50.pth
+│
+├── data/
+│     └── train/                        # 训练数据集（用户需手动放置）
+│           ├── images/                 # 原始图像（*.jpg / *.png）
+│           ├── masks/                  # 掩码标签（0/1/2/3 单通道）
+│           └── masks_visualizations/   # 掩码可视化（可选）
 │
 ├── dataloader/
-│   └── dataset_tunnel.py   # 自定义隧道数据集
+│     └── dataset_tunnel.py             # 自定义隧道病害数据集
+│
+├── Evaluation_plot/                    # 训练曲线 & 评估图（自动生成）
+│
+├── logs/
+│     └── train_log.csv                 # 训练日志（自动生成）
 │
 ├── models/
-│   ├── deeplab_model.py    # DeepLabV3-ResNet50 定义
-│   └── utils.py
+│     ├── deeplab_model.py              # DeepLabV3 + ResNet50 定义
+│     └── utils.py                      # 模型辅助函数
 │
-├── logs/                   # 训练日志（自动生成）
-├── checkpoints/            # 模型权重（自动保存）
-├── results/                # 推理结果（自动生成）
-├── Evaluation_plot/        # 训练曲线 & 评估图（自动生成）
-├── results_example/        # 示例预测可视化
+├── results_example/                    # 预测结果示例（遮罩 & 叠加）
+│
+├── test/                               # 各类测试脚本
+│     ├── data_checkpoint.py            # 测试数据结构是否完整
+│     ├── mask_checkpoint.py            # 测试 mask 是否规范
+│     ├── test_import.py                # 导入模块测试
+│     └── test_scan.py                  # 基础扫描检查
+│
+├── .gitignore                          # Git 忽略文件
+│
+├── convert_mask.py                     # 将 RGB mask 转单通道标签
+├── evaluate_metrics.py                 # mIoU / mPA / 混淆矩阵评估
+├── plog_log.py                         # 绘制训练曲线
+├── predict.py                          # 推理脚本（单张图片预测）
+├── train.py                            # 训练主程序
 │
 └── README.md
 ```
