@@ -15,9 +15,9 @@ venv/
 data/
 
 # 训练/评估中间结果
-logs/
+#logs/
 results/
-Evaluation_plot/
+#Evaluation_plot/
 checkpoints/
 *.pth
 
